@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Files - Detective Investigation</title>
+    <link rel="stylesheet" href="style-noir.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-search"></i>
+                <h1>Case Files</h1>
+            </div>
+            <div class="case-number">Case #789: The Midnight Heist</div>
+        </header>
+
+        <main class="main-content">
+            <div class="case-overview">
+                <div class="case-intro">
+                    <h2>The Scene</h2>
+                    <p>A high-value art theft occurred at the prestigious Sterling Gallery last night. The stolen painting, "Midnight in Paris," is worth over $5 million. Security footage reveals the thief entered through a skylight but left no trace. You're the lead detective assigned to this case.</p>
+                </div>
+
+                <div class="evidence-counter">
+                    <div class="clues-found">
+                        <i class="fas fa-search"></i>
+                        <span>Clues Found: <span id="clue-count">0</span>/8</span>
+                    </div>
+                    <div class="suspects-interviewed">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Suspects Interviewed: <span id="suspect-count">0</span>/4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="investigation-board">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="evidence">Evidence</button>
+                    <button class="tab-button" data-tab="suspects">Suspects</button>
+                    <button class="tab-button" data-tab="timeline">Timeline</button>
+                    <button class="tab-button" data-tab="notes">Notes</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="evidence" class="tab-pane active">
+                        <div class="evidence-grid">
+                            <div class="evidence-item" data-clue="1">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-fingerprint"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Fingerprint</h3>
+                                    <p class="evidence-description">A partial print found on the skylight frame.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="2">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-shoe-prints"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Footprints</h3>
+                                    <p class="evidence-description">Unusual shoe prints in the garden below the skylight.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="3">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Security Footage</h3>
+                                    <p class="evidence-description">Blurred footage of the thief entering through the skylight.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="4">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Paint Residue</h3>
+                                    <p class="evidence-description">Blue paint chips found near the empty frame.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="5">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Jewel Fragment</h3>
+                                    <p class="evidence-description">A small diamond fragment from the painting's frame.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="6">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-file"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Gallery Records</h3>
+                                    <p class="evidence-description">Visitor logs from the day before the heist.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="7">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Insurance Policy</h3>
+                                    <p class="evidence-description">Details about the painting's insurance coverage.</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+
+                            <div class="evidence-item" data-clue="8">
+                                <div class="evidence-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="evidence-info">
+                                    <h3>Anonymous Tip</h3>
+                                    <p class="evidence-description">A cryptic note mentioning "the inside job."</p>
+                                    <div class="evidence-status">Not Analyzed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="suspects" class="tab-pane">
+                        <div class="suspects-grid">
+                            <div class="suspect-card" data-suspect="1">
+                                <div class="suspect-photo">
+                                    <img src="https://picsum.photos/seed/suspect1/200/200.jpg" alt="Marcus Sterling">
+                                </div>
+                                <div class="suspect-info">
+                                    <h3>Marcus Sterling</h3>
+                                    <p class="suspect-role">Gallery Owner</p>
+                                    <p class="suspect-alibi">Claimed to be at a charity event across town.</p>
+                                    <div class="suspect-status">Not Interviewed</div>
+                                </div>
+                            </div>
+
+                            <div class="suspect-card" data-suspect="2">
+                                <div class="suspect-photo">
+                                    <img src="https://picsum.photos/seed/suspect2/200/200.jpg" alt="Isabella Chen">
+                                </div>
+                                <div class="suspect-info">
+                                    <h3>Isabella Chen</h3>
+                                    <p class="suspect-role">Chief Curator</p>
+                                    <p class="suspect-alibi">Said she was working late in her office.</p>
+                                    <div class="suspect-status">Not Interviewed</div>
+                                </div>
+                            </div>
+
+                            <div class="suspect-card" data-suspect="3">
+                                <div class="suspect-photo">
+                                    <img src="https://picsum.photos/seed/suspect3/200/200.jpg" alt="James Riley">
+                                </div>
+                                <div class="suspect-info">
+                                    <h3>James Riley</h3>
+                                    <p class="suspect-role">Security Chief</p>
+                                    <p class="suspect-alibi">Reported being home with family.</p>
+                                    <div class="suspect-status">Not Interviewed</div>
+                                </div>
+                            </div>
+
+                            <div class="suspect-card" data-suspect="4">
+                                <div class="suspect-photo">
+                                    <img src="https://picsum.photos/seed/suspect4/200/200.jpg" alt="Sophia Laurent">
+                                </div>
+                                <div class="suspect-info">
+                                    <h3>Sophia Laurent</h3>
+                                    <p class="suspect-role">Art Appraiser</p>
+                                    <p class="suspect-alibi">Claimed to be dining with a client.</p>
+                                    <div class="suspect-status">Not Interviewed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="timeline" class="tab-pane">
+                        <div class="timeline-container">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-time">22:00</div>
+                                    <div class="timeline-content">
+                                        <h3>Gallery Closes</h3>
+                                        <p>Security system activated. All staff except security personnel leave the premises.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-time">23:45</div>
+                                    <div class="timeline-content">
+                                        <h3>Security Check</h3>
+                                        <p>Chief security officer James Riley conducts routine perimeter check. All doors and windows secured.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-time">00:15</div>
+                                    <div class="timeline-content">
+                                        <h3>Power Outage</h3>
+                                        <p>Brief 30-second power outage in the gallery wing where the painting is displayed.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-time">00:30</div>
+                                    <div class="timeline-content">
+                                        <h3>Alarm Triggered</h3>
+                                        <p>Motion sensor triggered in the gallery. Security footage shows skylitter opening.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-time">00:45</div>
+                                    <div class="timeline-content">
+                                        <h3>Thief Escapes</h3>
+                                        <p>Security footage shows figure leaving through skylight with rolled painting.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-time">01:00</div>
+                                    <div class="timeline-content">
+                                        <h3>Police Arrive</h3>
+                                        <p>Security chief James Riley calls police after discovering the theft.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="notes" class="tab-pane">
+                        <div class="notes-container">
+                            <div class="note-editor">
+                                <h3>Investigation Notes</h3>
+                                <textarea id="note-text" placeholder="Record your observations, theories, and findings here..."></textarea>
+                                <button id="add-note" class="primary-button">
+                                    <i class="fas fa-plus"></i> Add Note
+                                </button>
+                            </div>
+
+                            <div class="notes-list">
+                                <h3>Your Notes</h3>
+                                <div id="notes-display">
+                                    <div class="empty-notes">
+                                        <p>No notes yet. Start investigating and record your findings.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solve-case">
+                <button id="solve-button" class="solve-button">
+                    <i class="fas fa-file-contract"></i> Submit Solution
+                </button>
+            </div>
+        </main>
+
+        <div id="solve-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Solve the Case</h2>
+                    <span class="close-button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="solution-form">
+                        <div class="form-group">
+                            <label for="culprit">Who is the culprit?</label>
+                            <select id="culprit">
+                                <option value="">Select a suspect</option>
+                                <option value="1">Marcus Sterling (Gallery Owner)</option>
+                                <option value="2">Isabella Chen (Chief Curator)</option>
+                                <option value="3">James Riley (Security Chief)</option>
+                                <option value="4">Sophia Laurent (Art Appraiser)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="motive">What was the motive?</label>
+                            <textarea id="motive" placeholder="Explain the motive..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="evidence">Key evidence against the culprit:</label>
+                            <textarea id="evidence" placeholder="Explain the key evidence..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="method">How was the crime executed?</label>
+                            <textarea id="method" placeholder="Explain the method..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button id="submit-solution" class="primary-button">Submit Solution</button>
+                            <button id="cancel-solution" class="secondary-button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="solution-result" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Case Result</h2>
+                    <span class="close-button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="result-content">
+                        <!-- Solution result will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

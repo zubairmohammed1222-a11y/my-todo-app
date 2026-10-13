@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple to-do list to keep track of what matters today."
+    />
+    <title>Little List — Today, one thing at a time</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <p class="eyebrow">A LITTLE SPACE FOR YOUR DAY</p>
+        <h1>Little List<span>.</span></h1>
+        <p class="subtitle">One thing at a time is plenty. So let's make it count.</p>
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </header>
+
+      <form class="task-form" id="task-form">
+        <label class="visually-hidden" for="task-input">Add a task</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          placeholder="What's on your mind?"
+          maxlength="120"
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Add task</button>
+      </form>
+
+      <section class="list-section" aria-labelledby="list-heading">
+        <div class="list-heading">
+          <h2 id="list-heading">Your tasks</h2>
+          <span id="task-count" class="task-count">0 tasks left</span>
+        </div>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+        <p id="empty-message" class="empty-message">
+          Your list is clear. Add a little something above.
+        </p>
+      </section>
+
+      <footer class="footer">Keep it simple. You've got this.</footer>
+    </main>
+  </body>
+</html>
