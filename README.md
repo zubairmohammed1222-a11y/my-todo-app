@@ -1,2 +1,0 @@
-# GitPractice
-# my-todo-app
