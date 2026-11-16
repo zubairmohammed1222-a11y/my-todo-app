@@ -103,7 +103,7 @@ function initializeTheme() {
   const savedTheme = localStorage.getItem(themeKey);
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const currentTheme = savedTheme || (prefersDark ? "dark" : "light");
-
+  
   if (currentTheme === "dark") {
     document.body.classList.add("dark-theme");
     sunIcon.style.display = "none";
@@ -114,7 +114,7 @@ function initializeTheme() {
 // Toggle theme
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
-
+  
   // Toggle icons
   if (document.body.classList.contains("dark-theme")) {
     sunIcon.style.display = "none";
@@ -123,7 +123,7 @@ themeToggle.addEventListener("click", () => {
     sunIcon.style.display = "block";
     moonIcon.style.display = "none";
   }
-
+  
   // Save theme preference
   const theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
   localStorage.setItem(themeKey, theme);
